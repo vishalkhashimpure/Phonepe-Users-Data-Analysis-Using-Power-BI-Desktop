@@ -222,3 +222,104 @@ Changing Slicer to Dropdown
 19. Repeat the same process for the Payment_Status slicer if required.
 20. Finally, check all the visuals, KPI cards, slicers and tooltips to make sure everything is working properly.
 21. Save the completed dashboard using Ctrl + S.
+
+Dashboard Overview
+
+The dashboard shows the following main numbers:
+
+- Total Transactions: 300K
+- Total Transaction Value: ₹3.47 Billion
+- Total Users: 108K
+- Success Rate: 96%
+- Transaction Growth: 8.97%
+- Transaction Value Growth: 8.98%
+
+What I Analyzed
+
+Transaction Trends
+
+I analyzed the transactions month by month to see how the transaction count and transaction value change throughout the year.
+
+The dashboard shows that transaction activity goes up and down during different months, which can help identify the months with higher and lower activity.
+
+User Analysis
+
+The dashboard contains an analysis of users based on age groups such as:
+
+- Teenagers
+- Adults
+- Older People
+
+From the dashboard, older people form an important user segment compared with teenagers and adults.
+
+Weekday vs Weekend
+
+One of the interesting findings was the difference between weekday and weekend usage.
+
+- Weekday: 71.6%
+- Weekend: 28.4%
+
+This shows that most of the transactions in the dataset happen during weekdays.
+
+Service Analysis
+
+I also compared transaction values across different services.
+
+The major services shown in the dashboard are:
+
+- Loans
+- Insurance
+- Money Transfer
+- Recharge & Bills
+
+Loans have the highest transaction value, at around ₹2.5 billion, followed by Insurance, Money Transfer, and Recharge & Bills.
+
+This shows that Loans are contributing a large portion of the overall transaction value.
+
+Top Users
+
+The dashboard also shows the Top 5 Users based on transaction value.
+
+This helps in identifying users who are contributing more to the overall transaction value and can be useful for understanding high-value customers.
+
+Key Insights
+
+From the dashboard, I found a few important points:
+
+1. The overall transaction volume is around 300K.
+2. The total transaction value is approximately ₹3.47 billion.
+3. There are around 108K users in the dataset.
+4. The overall transaction success rate is 96%.
+5. Transaction count and transaction value have grown by around 9%.
+6. Loans contribute the highest transaction value among the services shown.
+7. Weekday usage is much higher than weekend usage.
+8. Older users are an important segment in the user analysis.
+9. Transaction activity changes from month to month.
+
+Recommendations
+
+Based on the analysis, I would suggest:
+
+- Improve the transaction success rate by finding the main reasons for failed transactions.
+- Focus more on services other than Loans to make the transaction portfolio more balanced.
+- Use weekend offers and promotions to increase weekend transactions.
+- Create different offers based on user age groups and their usage patterns.
+- Focus on retaining high-value users through personalized offers and loyalty programs.
+- Study the high- and low-performing months to understand the reasons behind the changes in transaction activity.
+
+Tools Used
+
+- Power BI
+- Data Cleaning and Analysis
+- Data Visualization
+- Interactive Dashboard
+
+Conclusion
+
+Overall, this project helped me understand how transaction data can be used to find useful business insights.
+
+The dashboard shows that PhonePe has a good transaction volume, a 96% success rate, and around 9% growth in both transaction count and transaction value.
+
+At the same time, there are opportunities to improve the success rate, increase usage of other services, improve weekend engagement, and understand different user groups better.
+
+This project gave me practical experience in data analysis, dashboard creation, visualization, and converting raw data into business insights.
