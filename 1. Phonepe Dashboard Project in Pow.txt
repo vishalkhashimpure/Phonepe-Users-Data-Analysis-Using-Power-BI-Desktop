@@ -1,0 +1,64 @@
+1. Phonepe Dashboard Project in Power BI
+____________________________________________________________________________________________________________________________
+
+First understand the dataset and what data we have before analysis.
+
+Step 1: Transform and load.
+
+1. Open the Power BI Desktop and get data from excel workbook and transform the data.
+2. after transform go to view table and view data by clicking on column Quality and Column Distribution.
+3. after that check all the headers like spelling and all.
+4. Check all the data types.
+5. check for duplicates in primary column and remove duplicate by select the column and right click and select remove duplicates.
+6. now in services column change name recharge_bills to recharge bills by selecting the column and right click and select replace values.
+7. and same with money_transfer to money transfer.
+8. now dataset is good for analysis so close and load the data from data tab.
+
+Step 2: created a Date Table
+
+1. Save the file with a proper name.
+2. if you have a date column in your dataset then create one separate table for date using dax functions for better result.
+3. now go to table view in left side screen and click in table view then you will in a tab section table tools there is a option for New table click on that and now give the dax functions.
+4. using this dax formula create a column:
+	Date_Table = ADDCOLUMNS(CALENDAR(MIN(All_Transactions[Date]),MAX(All_Transactions[Date])),
+	"Year",YEAR([Date]),
+	"Month no.",MONTH([Date]),
+	"Month name",FORMAT([Date],"mmm"),
+	"Querter","Q"&FORMAT([Date],"Q"),
+	"Weekday",FORMAT([Date],"dddd"),
+	"Day no.",WEEKDAY([Date],2),
+	"Weekend",
+	IF(WEEKDAY([Date],2)>=6,"Weekend","Weekday")
+	)
+5. importance of creating month no. and day no. columns it will help to sort the months and days into ascending and descending order.
+6. after creating a table make sure you mark the table using mark as a date table section on ribbon.
+7. after clicking on mark as a date table then enable the option and then select table column  as a date and save.
+
+Step 3: Data Modeling
+
+1. here we find he relations between tables
+2. first create between all_users and all_transactions by draging the common column on second column (drag the user_id column to transaction table) then using many to one format we create relationship between them.
+3. ERROR = (Column '' in Table '' contains a duplicate value '' and this is not allowed for columns on the one side of a many-to-one relationship or for columns that are used as the primary key of a table.) if you any error like then go to transform data and go to all users table then select user_id and right click and do remove duplicates and remove null values.
+4. for remove blank rows use remove rows column and click on remove blank rows.
+5. after that again create the relation it will work.
+6. same with transactions and date table also.
+7. now create one small table for your measures so you can understand what measure you created for that in home tab go to enter data and give table name and column name too and click load.
+8. save the file by clicking ctrl+s.
+
+Step 4: create KPI's and Visuals.
+
+1. create measures and save them in table measures. by selecting the measure table in home table section.
+2. kpi's are 1. total transaction amount = SUM(All_Transactions[Amount])
+	     2. total transactions count = COUNT(All_Transactions[Transaction_ID]) 
+	     3. successful transactions = CALCULATE([total transactions count],All_Transactions[Payment_Status] = "successful")
+	     4. success rate = DIVIDE([successful transactions],[total transactions count])
+	     5. total users = DISTINCTCOUNT(All_Users[User_ID])
+	     6. Transaction value previous month = CALCULATE([total transaction amount],DATEADD(Date_Table[Date],-1,MONTH))
+	     7. Transaction value month over month growth% = DIVIDE([total transaction amount]-[Transaction value previous month],[Transaction value previous month],0)
+	     8. total transactions previous month = CALCULATE([total transactions count],DATEADD(Date_Table[Date],-1,MONTH)) 
+ 	     9. total transactions month over month growth% = DIVIDE([total transactions count]-[total trans previous month],[total trans previous month],0) 
+3. now you see in the all users table there is age column which multiple age numbers so check which age group is using phonepe more to check that we have to create a another column name age segment for that go to transform data then click on conditional column because we have to use if condition and after putting the formula then click okay. and close and save the table.
+4. till now we completed data cleaning, data modeling and data transform, created measure table and created required KPI's also done.
+5. now put kpi's into card visuals 
+6. what is use of month over month grow kpi, it will show all the months growth based month slicer.
+7. 
