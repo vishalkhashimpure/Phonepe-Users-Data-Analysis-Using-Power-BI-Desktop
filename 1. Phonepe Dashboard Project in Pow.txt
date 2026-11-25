@@ -57,8 +57,42 @@ Step 4: create KPI's and Visuals.
 	     7. Transaction value month over month growth% = DIVIDE([total transaction amount]-[Transaction value previous month],[Transaction value previous month],0)
 	     8. total transactions previous month = CALCULATE([total transactions count],DATEADD(Date_Table[Date],-1,MONTH)) 
  	     9. total transactions month over month growth% = DIVIDE([total transactions count]-[total trans previous month],[total trans previous month],0) 
+	    10. Previous Month Success Rate = CALCULATE([success rate],DATEADD(Date_Table[Date], -1, MONTH))
+	    11. MoM Success Rate Change = DIVIDE([success rate] - [Previous Month Success Rate],[Previous Month Success Rate],0) 
 3. now you see in the all users table there is age column which multiple age numbers so check which age group is using phonepe more to check that we have to create a another column name age segment for that go to transform data then click on conditional column because we have to use if condition and after putting the formula then click okay. and close and save the table.
 4. till now we completed data cleaning, data modeling and data transform, created measure table and created required KPI's also done.
 5. now put kpi's into card visuals 
 6. what is use of month over month grow kpi, it will show all the months growth based month slicer.
-7. 
+
+Step 5: create Visuals
+
+1. line chart for month over month growth x-axis month_name nd y-axis Total Transaction Amount
+2. column Chart for revenue by services.
+3. Stack column chart for payment_Status by Total Transactions. in this we can do one thing like there is 5 type of payment status we can convert into 3 means insufficient amount, wrong pin and server Error put them into one type as pending. for that go to Transform and found  insufficient amount, wrong pin and server Error Nd replace it with Pending.
+4. Donut Chart for Contribution of age segmentation.
+5. Donut chart for Weekends and weekdays contribution.
+6. column chart for to check every day Transactions.
+7. column chart for check top 10 users who made most transactions. for make it top 10 go to filter pane click on name and select top n option and give 10 then select name and apply filter.
+
+Step 6: tooltips
+
+1. to create tooltip get new page by clicking in + symbol side of your page and click anywhere in the page and then in the visuals section go to format and select canvas setting in that  you will see the type option in that you select tooltip and then create one column chart which service type and total transaction amount.
+2. now go back to first page then select the chart which we want to connect with tooltip and go to visuals and go to format and search for tooltip make it on if its off then there is option for page then select your tooltip page name and done it will connect.
+3. then do with same with another chart also which you wanted to connect.
+4. now create another tooltip and connect with the weekday donut chart.
+
+Step 7 : lets design the Dashboard
+
+1. use image from the GitHub and click anywhere on blank sheet and go to canvas background then click on browse then select the image from your device.
+2. first thing remove the background and borders of the visuals.
+3. for that go to visuals and format and search for background and every background make it off and after that search for border and make it off.
+4. if your visuals not transparent after this then go to 3 dots then select expand all categories then do it again.
+5. now adjust all transparent visuals on image of dashboard.
+6. after this go to select your two growth percentage and make them like if they went -ve then red colour if +ve then green colour. for do that goto visuals format and click on callout then go to values and click on fx symbol then choose format style as rule then write the formula there and and save it.
+7. then do it same for other growth percentage.
+8. then same for another one
+9. put two slicers also there as month name and payment status.
+10. now change the bar graph colour using select visual go to format and select cloumns and select gradient then give colour which you want and save them.
+11. do it with other visuals if you want.
+12. now make a slicer dropdown for that go to slicer click on it and go to visuals format and slicer setting then select dropdown.
+
